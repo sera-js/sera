@@ -1,6 +1,7 @@
 <p align="center">
-  ![serajs (2)](https://github.com/user-attachments/assets/85dce28f-49ca-49eb-8ba4-a5bec742b995)
+  ![serajs (2)](https://github.com/user-attachments/assets/83f91b4d-660d-4b08-b117-6430e56d7f6e)
 </p>
+
 
 ## 📖 **Introduction**
 
