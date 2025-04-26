@@ -1,5 +1,5 @@
 <p align="center">
-  <img src="https://github.com/user-attachments/assets/835f950b-9fa8-4343-bc5b-2f748e68da82" alt="serajs (2)" />
+  ![serajs (2)](https://github.com/user-attachments/assets/85dce28f-49ca-49eb-8ba4-a5bec742b995)
 </p>
 
 ## 📖 **Introduction**
