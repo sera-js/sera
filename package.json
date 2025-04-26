@@ -1,10 +1,15 @@
 {
-  "devDependencies": {
-    "vitepress": "^1.6.3"
-  },
+  "type": "module",
   "scripts": {
-    "docs:dev": "vitepress dev",
-    "docs:build": "vitepress build",
-    "docs:preview": "vitepress preview"
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview"
+  },
+  "devDependencies": {
+    "vite": "^6.2.6"
+  },
+  "dependencies": {
+    "serajs": "^1.0.3",
+    "seraplugin": "^1.0.0"
   }
 }
