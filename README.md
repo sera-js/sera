@@ -11,6 +11,8 @@ A modern, responsive Portfolio template built with serajs
 
 💻 (Source Code)[https://github.com/seraprogrammer/seraportfolio]
 
+
+
 **SeraJS** is a lightweight, **signal-based reactive JavaScript library** for
 building dynamic user interfaces.
 
