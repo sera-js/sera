@@ -3,6 +3,12 @@
 
 ## 📖 **Introduction**
 
+📚 Projects
+1. 🚀 Portfolio Templates —  seraJs
+A modern, responsive Portfolio template built with serajs
+
+🔗( Live Demo)[https://seraprogrammer.github.io/seraportfolio/] | 💻 (Source Code)[https://github.com/seraprogrammer/seraportfolio]
+
 **SeraJS** is a lightweight, **signal-based reactive JavaScript library** for
 building dynamic user interfaces.
 
