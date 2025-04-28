@@ -3,7 +3,7 @@
 
 ## 📖 **Introduction**
 
-📚 Projects
+> 📚 Projects
 1. 🚀 Portfolio Templates —  seraJs
 A modern, responsive Portfolio template built with serajs
 
