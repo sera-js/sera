@@ -375,8 +375,89 @@ function insertChildren(parent, children) {
   }
 }
 
+function createComponent(Component, props) {
+  // Create a container for the component
+  const container = document.createDocumentFragment();
+  const startMarker = document.createComment("component-start");
+  const endMarker = document.createComment("component-end");
+
+  container.appendChild(startMarker);
+  container.appendChild(endMarker);
+
+  // Function to insert content between the markers
+  const insertContent = (content) => {
+    if (!content) return;
+
+    // If markers are in the DOM
+    if (startMarker.parentNode) {
+      startMarker.parentNode.insertBefore(content, endMarker);
+    } else {
+      // If they're not in the DOM yet, add to the container
+      container.insertBefore(content, endMarker);
+    }
+  };
+
+  // Set up the reactive rendering
+  setEffect(() => {
+    try {
+      // Call the component function to get the result
+      const result = Component(props);
+
+      // Clean up any existing nodes between markers
+      let node;
+      while ((node = startMarker.nextSibling) && node !== endMarker) {
+        if (node._cleanup && typeof node._cleanup === "function") {
+          node._cleanup();
+          node._cleanup = null;
+        }
+        node.remove();
+      }
+
+      // Handle the result based on its type
+      if (result != null) {
+        let content;
+
+        // Handle DOM nodes directly
+        if (typeof result === "object" && result.nodeType) {
+          content = result;
+        }
+        // Handle primitive values by converting to text nodes
+        else if (typeof result !== "function" && typeof result !== "object") {
+          content = document.createTextNode(String(result));
+        }
+        // Handle function results (reactive components)
+        else if (typeof result === "function") {
+          const value = result();
+          if (value != null) {
+            if (typeof value === "object" && value.nodeType) {
+              content = value;
+            } else {
+              content = document.createTextNode(String(value));
+            }
+          }
+        }
+
+        // Insert the content between markers if we have content
+        if (content) {
+          insertContent(content);
+        }
+      }
+    } catch (error) {
+      console.error("Error rendering component:", error);
+      const errorNode = document.createTextNode(`Error: ${error.message}`);
+      insertContent(errorNode);
+    }
+  });
+
+  return container;
+}
+
 export function createElement(type, props = {}) {
-  if (typeof type === "function") return type(props);
+  // Handle function components with the specialized component creator
+  if (typeof type === "function") {
+    return createComponent(type, props);
+  }
+
   if (type === Fragment) return Fragment(props);
 
   const el = isSvg(type)
@@ -429,6 +510,16 @@ export function createElement(type, props = {}) {
   return el;
 }
 
+// Create a JSX component wrapper
+export function jsx(type, props = {}, ...children) {
+  if (children.length) {
+    props = props || {};
+    props.children = children.length === 1 ? children[0] : children;
+  }
+  return createElement(type, props);
+}
+
+// Export a version of h that matches React's createElement for better compatibility
 export function h(type, props, ...children) {
   props = props || {};
   if (children.length)
@@ -442,5 +533,6 @@ export default {
   setMemo,
   createElement,
   h,
+  jsx,
   Fragment,
 };
