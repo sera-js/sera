@@ -4,12 +4,11 @@
 ## 📖 **Introduction**
 
 > 📚 Projects
-1. 🚀 Portfolio Templates —  seraJs
-A modern, responsive Portfolio template built with serajs
+1. 🚀 Portfolio  —  seraJs
 
-🔗( Live Demo)[https://seraprogrammer.github.io/seraportfolio/] 
+🔗(Portfolio)[https://seraprogrammer.github.io/seraportfolio/] 
 
-💻 (Source Code)[https://github.com/seraprogrammer/seraportfolio]
+🔗(Demo blog)[https://seraprogrammer.github.io/serajsBlogsDemo/] 
 
 
 
