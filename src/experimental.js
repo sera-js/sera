@@ -73,7 +73,7 @@ const scheduler = {
 
 const memoCache = new WeakMap();
 
-export function createSignal(initialValue) {
+export function setSignal(initialValue) {
   const subscribers = new Set();
   let currentValue = initialValue;
 
@@ -142,7 +142,7 @@ export function createSignal(initialValue) {
   };
 
   read.transform = (transformFn) => {
-    const [derivedValue, setDerivedValue] = createSignal(
+    const [derivedValue, setDerivedValue] = setSignal(
       transformFn(currentValue)
     );
 
@@ -162,9 +162,9 @@ export function createSignal(initialValue) {
   return [read, write];
 }
 
-export function createEffect(fn) {
+export function setEffect(fn) {
   if (typeof fn !== "function") {
-    throw new TypeError("createEffect requires a function as its argument");
+    throw new TypeError("setEffect requires a function as its argument");
   }
 
   let isRunning = false;
@@ -210,10 +210,10 @@ export function createEffect(fn) {
   };
 }
 
-export function createMemo(fn) {
+export function setMemo(fn) {
   if (!memoCache.has(fn)) {
-    const [get, set] = createSignal();
-    const dispose = createEffect(() => set(fn()));
+    const [get, set] = setSignal();
+    const dispose = setEffect(() => set(fn()));
 
     get.cleanup = () => {
       dispose();
@@ -337,7 +337,7 @@ function insertChildren(parent, children) {
         let lastValue = null;
         parent.appendChild(marker);
 
-        createEffect(() => {
+        setEffect(() => {
           const value = child();
           if (Object.is(value, lastValue)) return;
           lastValue = value;
@@ -434,9 +434,9 @@ export function h(type, props, ...children) {
 }
 
 export default {
-  createSignal,
-  createEffect,
-  createMemo,
+  setSignal,
+  setEffect,
+  setMemo,
   createElement,
   h,
   Fragment,
