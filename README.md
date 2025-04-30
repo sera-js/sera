@@ -3,8 +3,7 @@
 
 ## 📖 **Introduction**
 
-> 📚 Projects
-1. 🚀 Portfolio  —  seraJs
+> 📚 Projects  —  seraJs
 
 🔗(Portfolio)[https://seraprogrammer.github.io/seraportfolio/] 
 
