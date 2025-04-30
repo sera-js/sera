@@ -21,7 +21,10 @@ let pendingEffects = new Set();
 let frameId = null;
 
 const scheduler = {
-  microtask: (fn) => Promise.resolve().then(fn),
+  microtask: (fn) =>
+    typeof queueMicrotask === "function"
+      ? queueMicrotask(fn)
+      : Promise.resolve().then(fn),
   animationFrame: (fn) => requestAnimationFrame(fn),
   idle: (fn) =>
     requestIdleCallback ? requestIdleCallback(fn) : setTimeout(fn, 0),
