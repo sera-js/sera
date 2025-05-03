@@ -43,21 +43,33 @@ function insertChildren(parent, children) {
     if (child == null || typeof child === "boolean") continue;
     if (typeof child === "function") {
       const marker = document.createComment("");
-      let lastValue = null;
+      let lastNode = null;
       parent.appendChild(marker);
       setEffect(() => {
         const value = child();
-        if (value === lastValue) return;
-        lastValue = value;
-        while (marker.nextSibling && marker.nextSibling.nodeType !== 8)
-          marker.nextSibling.remove();
+
+        if (lastNode) {
+          if (typeof lastNode === "object" && lastNode.nodeType) {
+            lastNode.remove();
+          } else {
+
+            const next = marker.nextSibling;
+            if (next && next.nodeType === 3) next.remove();
+          }
+        }
+
         if (value != null) {
-          parent.insertBefore(
+          const newNode =
             typeof value === "object" && value.nodeType
               ? value
-              : document.createTextNode(String(value)),
-            marker.nextSibling
-          );
+              : document.createTextNode(String(value));
+
+          if (marker.parentNode) {
+            marker.parentNode.insertBefore(newNode, marker.nextSibling);
+            lastNode = newNode;
+          }
+        } else {
+          lastNode = null;
         }
       });
     } else {
