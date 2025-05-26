@@ -1,5 +1,21 @@
 {
+  "name": "sera",
+  "version": "1.0.0",
   "type": "module",
+  "main": "dist/sera.umd.cjs",
+  "module": "dist/sera.js",
+  "types": "types/index.d.ts",
+  "exports": {
+    ".": {
+      "types": "./types/index.d.ts",
+      "import": "./dist/sera.js",
+      "require": "./dist/sera.umd.cjs"
+    }
+  },
+  "files": [
+    "dist",
+    "types"
+  ],
   "scripts": {
     "dev": "vite",
     "build": "vite build",
