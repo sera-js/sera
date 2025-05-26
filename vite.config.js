@@ -9,10 +9,7 @@ export default defineConfig({
       name: 'sera',
       fileName: 'sera'
     },
-    outDir: 'dist',
-    emptyOutDir: true,
-    sourcemap: true,
-    minify: false,
+    minify: true,
     rollupOptions: {
       output: {
         exports: 'named'
