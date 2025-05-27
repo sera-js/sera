@@ -20,11 +20,65 @@ declare module "sera" {
     export function setMemo<T>(fn: () => T): () => T;
 
     /**
+     * Represents a node in the Sera.js virtual DOM
+     * Can be a string, number, boolean, null, undefined, iterable, Element, or DocumentFragment
+     * Must be a copy of the non-thenables of `SeraNode`
+     */
+    type AwaitedSeraNode =
+        | string
+        | number
+        | bigint
+        | Iterable<SeraNode>
+        | boolean
+        | null
+        | undefined
+        | Element
+        | DocumentFragment
+
+    /**
+     * Represents all of the things Sera can render
+     * This includes strings, numbers, bigints, iterables, booleans, null, undefined,
+     * Elements, DocumentFragments, and promises that resolve to any of these types
+     * 
+     * @example
+     * ```tsx
+     * // Typing children in a component
+     * type Props = { children: SeraNode };
+     * 
+     * const Component = ({ children }: Props) => <div>{children}</div>;
+     * 
+     * <Component>hello word</Component>
+     * ```
+     * 
+     * @example
+     * ```tsx
+     * // Typing a custom element
+     * type Props = { customElement: SeraNode };
+     * 
+     * const CustomElement = ({ customElement }: Props) => <div>{customElement}</div>;
+     * 
+     * <CustomElement customElement={<span>Custom Content</span>} />
+     * ```
+     */
+
+    type SeraNode =
+        | string
+        | number
+        | bigint
+        | Iterable<SeraNode>
+        | boolean
+        | null
+        | undefined
+        | Element
+        | DocumentFragment
+        | Promise<AwaitedSeraNode>
+
+    /**
      * Props for JSX components
      */
     interface Props {
         [key: string]: any;
-        children?: any;
+        children?: SeraNode;
         ref?: (el: Element) => void;
     }
 
