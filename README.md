@@ -14,7 +14,7 @@
 **SeraJS** is a lightweight, **signal-based reactive JavaScript library** for
 building dynamic user interfaces.
 
-At just **877 bytes gzipped** and only **135 lines** of code, it's a remarkably lightweight reactive UI library — offering powerful reactivity with minimal overhead.
+At just **969 bytes gzipped** and only **135 lines** of code, it's a remarkably lightweight reactive UI library — offering powerful reactivity with minimal overhead.
 
 > ⚡️ _SeraJS focuses on **minimalism** and **performance** without sacrificing
 > developer experience._
