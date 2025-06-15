@@ -9,7 +9,10 @@
 
 🔗(Demo blog)[https://seraprogrammer.github.io/serajsBlogsDemo/] 
 
-
+```bash
+npx degit sera-js/template my-app
+cd my-app
+```
 
 **SeraJS** is a lightweight, **signal-based reactive JavaScript library** for
 building dynamic user interfaces.
