@@ -60,7 +60,6 @@ declare module "sera" {
      * <CustomElement customElement={<span>Custom Content</span>} />
      * ```
      */
-
     type SeraNode =
         | string
         | number
