@@ -1,0 +1,602 @@
+/////////////////////////////
+/// Window Iterable APIs
+/////////////////////////////
+
+interface AudioParam {
+    /**
+     * The **`setValueCurveAtTime()`** method of the AudioParam interface schedules the parameter's value to change following a curve defined by a list of values.
+     *
+     * [MDN Reference](https://developer.mozilla.org/docs/Web/API/AudioParam/setValueCurveAtTime)
+     */
+    setValueCurveAtTime(values: Iterable<number>, startTime: number, duration: number): AudioParam;
+}
+
+interface AudioParamMap extends ReadonlyMap<string, AudioParam> {
+}
+
+interface BaseAudioContext {
+    /**
+     * The **`createIIRFilter()`** method of the BaseAudioContext interface creates an IIRFilterNode, which represents a general infinite impulse response (IIR) filter which can be configured to serve as various types of filter.
+     *
+     * [MDN Reference](https://developer.mozilla.org/docs/Web/API/BaseAudioContext/createIIRFilter)
+     */
+    createIIRFilter(feedforward: Iterable<number>, feedback: Iterable<number>): IIRFilterNode;
+    /**
+     * The **`createPeriodicWave()`** method of the BaseAudioContext interface is used to create a PeriodicWave. This wave is used to define a periodic waveform that can be used to shape the output of an OscillatorNode.
+     *
+     * [MDN Reference](https://developer.mozilla.org/docs/Web/API/BaseAudioContext/createPeriodicWave)
+     */
+    createPeriodicWave(real: Iterable<number>, imag: Iterable<number>, constraints?: PeriodicWaveConstraints): PeriodicWave;
+}
+
+interface CSSKeyframesRule {
+    [Symbol.iterator](): IterableIterator<CSSKeyframeRule>;
+}
+
+interface CSSNumericArray {
+    [Symbol.iterator](): IterableIterator<CSSNumericValue>;
+    entries(): IterableIterator<[number, CSSNumericValue]>;
+    keys(): IterableIterator<number>;
+    values(): IterableIterator<CSSNumericValue>;
+}
+
+interface CSSRuleList {
+    [Symbol.iterator](): IterableIterator<CSSRule>;
+}
+
+interface CSSStyleDeclaration {
+    [Symbol.iterator](): IterableIterator<string>;
+}
+
+interface CSSTransformValue {
+    [Symbol.iterator](): IterableIterator<CSSTransformComponent>;
+    entries(): IterableIterator<[number, CSSTransformComponent]>;
+    keys(): IterableIterator<number>;
+    values(): IterableIterator<CSSTransformComponent>;
+}
+
+interface CSSUnparsedValue {
+    [Symbol.iterator](): IterableIterator<CSSUnparsedSegment>;
+    entries(): IterableIterator<[number, CSSUnparsedSegment]>;
+    keys(): IterableIterator<number>;
+    values(): IterableIterator<CSSUnparsedSegment>;
+}
+
+interface Cache {
+    /**
+     * The **`addAll()`** method of the Cache interface takes an array of URLs, retrieves them, and adds the resulting response objects to the given cache. The request objects created during retrieval become keys to the stored response operations.
+     *
+     * [MDN Reference](https://developer.mozilla.org/docs/Web/API/Cache/addAll)
+     */
+    addAll(requests: Iterable<RequestInfo>): Promise<void>;
+}
+
+interface CanvasPath {
+    /** [MDN Reference](https://developer.mozilla.org/docs/Web/API/CanvasRenderingContext2D/roundRect) */
+    roundRect(x: number, y: number, w: number, h: number, radii?: number | DOMPointInit | Iterable<number | DOMPointInit>): void;
+}
+
+interface CanvasPathDrawingStyles {
+    /** [MDN Reference](https://developer.mozilla.org/docs/Web/API/CanvasRenderingContext2D/setLineDash) */
+    setLineDash(segments: Iterable<number>): void;
+}
+
+interface CookieStoreManager {
+    /**
+     * The **`subscribe()`** method of the CookieStoreManager interface subscribes a ServiceWorkerRegistration to cookie change events.
+     *
+     * [MDN Reference](https://developer.mozilla.org/docs/Web/API/CookieStoreManager/subscribe)
+     */
+    subscribe(subscriptions: Iterable<CookieStoreGetOptions>): Promise<void>;
+    /**
+     * The **`unsubscribe()`** method of the CookieStoreManager interface stops the ServiceWorkerRegistration from receiving previously subscribed events.
+     *
+     * [MDN Reference](https://developer.mozilla.org/docs/Web/API/CookieStoreManager/unsubscribe)
+     */
+    unsubscribe(subscriptions: Iterable<CookieStoreGetOptions>): Promise<void>;
+}
+
+interface CustomStateSet extends Set<string> {
+}
+
+interface DOMRectList {
+    [Symbol.iterator](): IterableIterator<DOMRect>;
+}
+
+interface DOMStringList {
+    [Symbol.iterator](): IterableIterator<string>;
+}
+
+interface DOMTokenList {
+    [Symbol.iterator](): IterableIterator<string>;
+    entries(): IterableIterator<[number, string]>;
+    keys(): IterableIterator<number>;
+    values(): IterableIterator<string>;
+}
+
+interface DataTransferItemList {
+    [Symbol.iterator](): IterableIterator<DataTransferItem>;
+}
+
+interface EventCounts extends ReadonlyMap<string, number> {
+}
+
+interface FileList {
+    [Symbol.iterator](): IterableIterator<File>;
+}
+
+interface FontFaceSet extends Set<FontFace> {
+}
+
+interface FormData {
+    [Symbol.iterator](): IterableIterator<[string, FormDataEntryValue]>;
+    /** Returns an array of key, value pairs for every entry in the list. */
+    entries(): IterableIterator<[string, FormDataEntryValue]>;
+    /** Returns a list of keys in the list. */
+    keys(): IterableIterator<string>;
+    /** Returns a list of values in the list. */
+    values(): IterableIterator<FormDataEntryValue>;
+}
+
+interface GPUBindingCommandsMixin {
+    /** [MDN Reference](https://developer.mozilla.org/docs/Web/API/GPUComputePassEncoder/setBindGroup) */
+    setBindGroup(index: GPUIndex32, bindGroup: GPUBindGroup | null, dynamicOffsets?: Iterable<GPUBufferDynamicOffset>): void;
+}
+
+interface GPUCommandEncoder {
+    /**
+     * The **`copyBufferToTexture()`** method of the GPUCommandEncoder interface encodes a command that copies data from a GPUBuffer to a GPUTexture.
+     *
+     * [MDN Reference](https://developer.mozilla.org/docs/Web/API/GPUCommandEncoder/copyBufferToTexture)
+     */
+    copyBufferToTexture(source: GPUTexelCopyBufferInfo, destination: GPUTexelCopyTextureInfo, copySize: Iterable<GPUIntegerCoordinate>): void;
+    /**
+     * The **`copyTextureToBuffer()`** method of the GPUCommandEncoder interface encodes a command that copies data from a GPUTexture to a GPUBuffer.
+     *
+     * [MDN Reference](https://developer.mozilla.org/docs/Web/API/GPUCommandEncoder/copyTextureToBuffer)
+     */
+    copyTextureToBuffer(source: GPUTexelCopyTextureInfo, destination: GPUTexelCopyBufferInfo, copySize: Iterable<GPUIntegerCoordinate>): void;
+    /**
+     * The **`copyTextureToTexture()`** method of the GPUCommandEncoder interface encodes a command that copies data from one GPUTexture to another.
+     *
+     * [MDN Reference](https://developer.mozilla.org/docs/Web/API/GPUCommandEncoder/copyTextureToTexture)
+     */
+    copyTextureToTexture(source: GPUTexelCopyTextureInfo, destination: GPUTexelCopyTextureInfo, copySize: Iterable<GPUIntegerCoordinate>): void;
+}
+
+interface GPUQueue {
+    /**
+     * The **`copyExternalImageToTexture()`** method of the GPUQueue interface copies a snapshot taken from a source image, video, or canvas into a given GPUTexture.
+     *
+     * [MDN Reference](https://developer.mozilla.org/docs/Web/API/GPUQueue/copyExternalImageToTexture)
+     */
+    copyExternalImageToTexture(source: GPUCopyExternalImageSourceInfo, destination: GPUCopyExternalImageDestInfo, copySize: Iterable<GPUIntegerCoordinate>): void;
+    /**
+     * The **`submit()`** method of the GPUQueue interface schedules the execution of command buffers represented by one or more GPUCommandBuffer objects by the GPU.
+     *
+     * [MDN Reference](https://developer.mozilla.org/docs/Web/API/GPUQueue/submit)
+     */
+    submit(commandBuffers: Iterable<GPUCommandBuffer>): void;
+    /**
+     * The **`writeTexture()`** method of the GPUQueue interface writes a provided data source into a given GPUTexture.
+     *
+     * [MDN Reference](https://developer.mozilla.org/docs/Web/API/GPUQueue/writeTexture)
+     */
+    writeTexture(destination: GPUTexelCopyTextureInfo, data: AllowSharedBufferSource, dataLayout: GPUTexelCopyBufferLayout, size: Iterable<GPUIntegerCoordinate>): void;
+}
+
+interface GPURenderPassEncoder {
+    /**
+     * The **`executeBundles()`** method of the GPURenderPassEncoder interface executes commands previously recorded into the referenced GPURenderBundles, as part of this render pass.
+     *
+     * [MDN Reference](https://developer.mozilla.org/docs/Web/API/GPURenderPassEncoder/executeBundles)
+     */
+    executeBundles(bundles: Iterable<GPURenderBundle>): void;
+    /**
+     * The **`setBlendConstant()`** method of the GPURenderPassEncoder interface sets the constant blend color and alpha values used with "constant" and "one-minus-constant" blend factors (as set in the descriptor of the GPUDevice.createRenderPipeline() method, in the blend property).
+     *
+     * [MDN Reference](https://developer.mozilla.org/docs/Web/API/GPURenderPassEncoder/setBlendConstant)
+     */
+    setBlendConstant(color: Iterable<number>): void;
+}
+
+interface GPUSupportedFeatures extends ReadonlySet<string> {
+}
+
+interface HTMLAllCollection {
+    [Symbol.iterator](): IterableIterator<Element>;
+}
+
+interface HTMLCollectionBase {
+    [Symbol.iterator](): IterableIterator<Element>;
+}
+
+interface HTMLCollectionOf<T extends Element> {
+    [Symbol.iterator](): IterableIterator<T>;
+}
+
+interface HTMLFormElement {
+    [Symbol.iterator](): IterableIterator<Element>;
+}
+
+interface HTMLSelectElement {
+    [Symbol.iterator](): IterableIterator<HTMLOptionElement>;
+}
+
+interface Headers {
+    [Symbol.iterator](): IterableIterator<[string, string]>;
+    /** Returns an iterator allowing to go through all key/value pairs contained in this object. */
+    entries(): IterableIterator<[string, string]>;
+    /** Returns an iterator allowing to go through all keys of the key/value pairs contained in this object. */
+    keys(): IterableIterator<string>;
+    /** Returns an iterator allowing to go through all values of the key/value pairs contained in this object. */
+    values(): IterableIterator<string>;
+}
+
+interface Highlight extends Set<AbstractRange> {
+}
+
+interface HighlightRegistry extends Map<string, Highlight> {
+}
+
+interface IDBDatabase {
+    /**
+     * The **`transaction`** method of the IDBDatabase interface immediately returns a transaction object (IDBTransaction) containing the IDBTransaction.objectStore method, which you can use to access your object store.
+     *
+     * [MDN Reference](https://developer.mozilla.org/docs/Web/API/IDBDatabase/transaction)
+     */
+    transaction(storeNames: string | Iterable<string>, mode?: IDBTransactionMode, options?: IDBTransactionOptions): IDBTransaction;
+}
+
+interface IDBObjectStore {
+    /**
+     * The **`createIndex()`** method of the IDBObjectStore interface creates and returns a new IDBIndex object in the connected database. It creates a new field/column defining a new data point for each database record to contain.
+     *
+     * [MDN Reference](https://developer.mozilla.org/docs/Web/API/IDBObjectStore/createIndex)
+     */
+    createIndex(name: string, keyPath: string | Iterable<string>, options?: IDBIndexParameters): IDBIndex;
+}
+
+interface ImageTrackList {
+    [Symbol.iterator](): IterableIterator<ImageTrack>;
+}
+
+interface MIDIInputMap extends ReadonlyMap<string, MIDIInput> {
+}
+
+interface MIDIOutput {
+    /**
+     * The **`send()`** method of the MIDIOutput interface queues messages for the corresponding MIDI port. The message can be sent immediately, or with an optional timestamp to delay sending.
+     *
+     * [MDN Reference](https://developer.mozilla.org/docs/Web/API/MIDIOutput/send)
+     */
+    send(data: Iterable<number>, timestamp?: DOMHighResTimeStamp): void;
+}
+
+interface MIDIOutputMap extends ReadonlyMap<string, MIDIOutput> {
+}
+
+interface MediaKeyStatusMap {
+    [Symbol.iterator](): IterableIterator<[BufferSource, MediaKeyStatus]>;
+    entries(): IterableIterator<[BufferSource, MediaKeyStatus]>;
+    keys(): IterableIterator<BufferSource>;
+    values(): IterableIterator<MediaKeyStatus>;
+}
+
+interface MediaList {
+    [Symbol.iterator](): IterableIterator<string>;
+}
+
+interface MessageEvent<T = any> {
+    /** @deprecated */
+    initMessageEvent(type: string, bubbles?: boolean, cancelable?: boolean, data?: any, origin?: string, lastEventId?: string, source?: MessageEventSource | null, ports?: Iterable<MessagePort>): void;
+}
+
+interface MimeTypeArray {
+    [Symbol.iterator](): IterableIterator<MimeType>;
+}
+
+interface NamedNodeMap {
+    [Symbol.iterator](): IterableIterator<Attr>;
+}
+
+interface Navigator {
+    /**
+     * The **`requestMediaKeySystemAccess()`** method of the Navigator interface returns a Promise which delivers a MediaKeySystemAccess object that can be used to access a particular media key system, which can in turn be used to create keys for decrypting a media stream.
+     * Available only in secure contexts.
+     *
+     * [MDN Reference](https://developer.mozilla.org/docs/Web/API/Navigator/requestMediaKeySystemAccess)
+     */
+    requestMediaKeySystemAccess(keySystem: string, supportedConfigurations: Iterable<MediaKeySystemConfiguration>): Promise<MediaKeySystemAccess>;
+    /**
+     * The **`vibrate()`** method of the Navigator interface pulses the vibration hardware on the device, if such hardware exists. If the device doesn't support vibration, this method has no effect. If a vibration pattern is already in progress when this method is called, the previous pattern is halted and the new one begins instead.
+     *
+     * [MDN Reference](https://developer.mozilla.org/docs/Web/API/Navigator/vibrate)
+     */
+    vibrate(pattern: Iterable<number>): boolean;
+}
+
+interface NodeList {
+    [Symbol.iterator](): IterableIterator<Node>;
+    /** Returns an array of key, value pairs for every entry in the list. */
+    entries(): IterableIterator<[number, Node]>;
+    /** Returns an list of keys in the list. */
+    keys(): IterableIterator<number>;
+    /** Returns an list of values in the list. */
+    values(): IterableIterator<Node>;
+}
+
+interface NodeListOf<TNode extends Node> {
+    [Symbol.iterator](): IterableIterator<TNode>;
+    /** Returns an array of key, value pairs for every entry in the list. */
+    entries(): IterableIterator<[number, TNode]>;
+    /** Returns an list of keys in the list. */
+    keys(): IterableIterator<number>;
+    /** Returns an list of values in the list. */
+    values(): IterableIterator<TNode>;
+}
+
+interface Plugin {
+    [Symbol.iterator](): IterableIterator<MimeType>;
+}
+
+interface PluginArray {
+    [Symbol.iterator](): IterableIterator<Plugin>;
+}
+
+interface RTCRtpTransceiver {
+    /**
+     * The **`setCodecPreferences()`** method of the RTCRtpTransceiver interface is used to set the codecs that the transceiver allows for decoding received data, in order of decreasing preference.
+     *
+     * [MDN Reference](https://developer.mozilla.org/docs/Web/API/RTCRtpTransceiver/setCodecPreferences)
+     */
+    setCodecPreferences(codecs: Iterable<RTCRtpCodec>): void;
+}
+
+interface RTCStatsReport extends ReadonlyMap<string, any> {
+}
+
+interface SVGLengthList {
+    [Symbol.iterator](): IterableIterator<SVGLength>;
+}
+
+interface SVGNumberList {
+    [Symbol.iterator](): IterableIterator<SVGNumber>;
+}
+
+interface SVGPointList {
+    [Symbol.iterator](): IterableIterator<DOMPoint>;
+}
+
+interface SVGStringList {
+    [Symbol.iterator](): IterableIterator<string>;
+}
+
+interface SVGTransformList {
+    [Symbol.iterator](): IterableIterator<SVGTransform>;
+}
+
+interface SourceBufferList {
+    [Symbol.iterator](): IterableIterator<SourceBuffer>;
+}
+
+interface SpeechRecognitionResult {
+    [Symbol.iterator](): IterableIterator<SpeechRecognitionAlternative>;
+}
+
+interface SpeechRecognitionResultList {
+    [Symbol.iterator](): IterableIterator<SpeechRecognitionResult>;
+}
+
+interface StylePropertyMapReadOnly {
+    [Symbol.iterator](): IterableIterator<[string, Iterable<CSSStyleValue>]>;
+    entries(): IterableIterator<[string, Iterable<CSSStyleValue>]>;
+    keys(): IterableIterator<string>;
+    values(): IterableIterator<Iterable<CSSStyleValue>>;
+}
+
+interface StyleSheetList {
+    [Symbol.iterator](): IterableIterator<CSSStyleSheet>;
+}
+
+interface SubtleCrypto {
+    /**
+     * The **`deriveKey()`** method of the SubtleCrypto interface can be used to derive a secret key from a master key.
+     *
+     * [MDN Reference](https://developer.mozilla.org/docs/Web/API/SubtleCrypto/deriveKey)
+     */
+    deriveKey(algorithm: AlgorithmIdentifier | EcdhKeyDeriveParams | HkdfParams | Pbkdf2Params, baseKey: CryptoKey, derivedKeyType: AlgorithmIdentifier | AesDerivedKeyParams | HmacImportParams | HkdfParams | Pbkdf2Params, extractable: boolean, keyUsages: Iterable<KeyUsage>): Promise<CryptoKey>;
+    /**
+     * The **`generateKey()`** method of the SubtleCrypto interface is used to generate a new key (for symmetric algorithms) or key pair (for public-key algorithms).
+     *
+     * [MDN Reference](https://developer.mozilla.org/docs/Web/API/SubtleCrypto/generateKey)
+     */
+    generateKey(algorithm: "Ed25519" | { name: "Ed25519" }, extractable: boolean, keyUsages: ReadonlyArray<"sign" | "verify">): Promise<CryptoKeyPair>;
+    generateKey(algorithm: "X25519" | { name: "X25519" }, extractable: boolean, keyUsages: ReadonlyArray<"deriveBits" | "deriveKey">): Promise<CryptoKeyPair>;
+    generateKey(algorithm: RsaHashedKeyGenParams | EcKeyGenParams, extractable: boolean, keyUsages: ReadonlyArray<KeyUsage>): Promise<CryptoKeyPair>;
+    generateKey(algorithm: AesKeyGenParams | HmacKeyGenParams | Pbkdf2Params, extractable: boolean, keyUsages: ReadonlyArray<KeyUsage>): Promise<CryptoKey>;
+    generateKey(algorithm: AlgorithmIdentifier, extractable: boolean, keyUsages: Iterable<KeyUsage>): Promise<CryptoKeyPair | CryptoKey>;
+    /**
+     * The **`importKey()`** method of the SubtleCrypto interface imports a key: that is, it takes as input a key in an external, portable format and gives you a CryptoKey object that you can use in the Web Crypto API.
+     *
+     * [MDN Reference](https://developer.mozilla.org/docs/Web/API/SubtleCrypto/importKey)
+     */
+    importKey(format: "jwk", keyData: JsonWebKey, algorithm: AlgorithmIdentifier | RsaHashedImportParams | EcKeyImportParams | HmacImportParams | AesKeyAlgorithm, extractable: boolean, keyUsages: ReadonlyArray<KeyUsage>): Promise<CryptoKey>;
+    importKey(format: Exclude<KeyFormat, "jwk">, keyData: BufferSource, algorithm: AlgorithmIdentifier | RsaHashedImportParams | EcKeyImportParams | HmacImportParams | AesKeyAlgorithm, extractable: boolean, keyUsages: Iterable<KeyUsage>): Promise<CryptoKey>;
+    /**
+     * The **`unwrapKey()`** method of the SubtleCrypto interface "unwraps" a key. This means that it takes as its input a key that has been exported and then encrypted (also called "wrapped"). It decrypts the key and then imports it, returning a CryptoKey object that can be used in the Web Crypto API.
+     *
+     * [MDN Reference](https://developer.mozilla.org/docs/Web/API/SubtleCrypto/unwrapKey)
+     */
+    unwrapKey(format: KeyFormat, wrappedKey: BufferSource, unwrappingKey: CryptoKey, unwrapAlgorithm: AlgorithmIdentifier | RsaOaepParams | AesCtrParams | AesCbcParams | AesGcmParams, unwrappedKeyAlgorithm: AlgorithmIdentifier | RsaHashedImportParams | EcKeyImportParams | HmacImportParams | AesKeyAlgorithm, extractable: boolean, keyUsages: Iterable<KeyUsage>): Promise<CryptoKey>;
+}
+
+interface TextTrackCueList {
+    [Symbol.iterator](): IterableIterator<TextTrackCue>;
+}
+
+interface TextTrackList {
+    [Symbol.iterator](): IterableIterator<TextTrack>;
+}
+
+interface TouchList {
+    [Symbol.iterator](): IterableIterator<Touch>;
+}
+
+interface URLSearchParams {
+    [Symbol.iterator](): IterableIterator<[string, string]>;
+    /** Returns an array of key, value pairs for every entry in the search params. */
+    entries(): IterableIterator<[string, string]>;
+    /** Returns a list of keys in the search params. */
+    keys(): IterableIterator<string>;
+    /** Returns a list of values in the search params. */
+    values(): IterableIterator<string>;
+}
+
+interface ViewTransitionTypeSet extends Set<string> {
+}
+
+interface WEBGL_draw_buffers {
+    /**
+     * The **`WEBGL_draw_buffers.drawBuffersWEBGL()`** method is part of the WebGL API and allows you to define the draw buffers to which all fragment colors are written.
+     *
+     * [MDN Reference](https://developer.mozilla.org/docs/Web/API/WEBGL_draw_buffers/drawBuffersWEBGL)
+     */
+    drawBuffersWEBGL(buffers: Iterable<GLenum>): void;
+}
+
+interface WEBGL_multi_draw {
+    /**
+     * The **`WEBGL_multi_draw.multiDrawArraysInstancedWEBGL()`** method of the WebGL API renders multiple primitives from array data. It is identical to multiple calls to the gl.drawArraysInstanced() method.
+     *
+     * [MDN Reference](https://developer.mozilla.org/docs/Web/API/WEBGL_multi_draw/multiDrawArraysInstancedWEBGL)
+     */
+    multiDrawArraysInstancedWEBGL(mode: GLenum, firstsList: Int32Array | Iterable<GLint>, firstsOffset: number, countsList: Int32Array | Iterable<GLsizei>, countsOffset: number, instanceCountsList: Int32Array | Iterable<GLsizei>, instanceCountsOffset: number, drawcount: GLsizei): void;
+    /**
+     * The **`WEBGL_multi_draw.multiDrawArraysWEBGL()`** method of the WebGL API renders multiple primitives from array data. It is identical to multiple calls to the gl.drawArrays() method.
+     *
+     * [MDN Reference](https://developer.mozilla.org/docs/Web/API/WEBGL_multi_draw/multiDrawArraysWEBGL)
+     */
+    multiDrawArraysWEBGL(mode: GLenum, firstsList: Int32Array | Iterable<GLint>, firstsOffset: number, countsList: Int32Array | Iterable<GLsizei>, countsOffset: number, drawcount: GLsizei): void;
+    /**
+     * The **`WEBGL_multi_draw.multiDrawElementsInstancedWEBGL()`** method of the WebGL API renders multiple primitives from array data. It is identical to multiple calls to the gl.drawElementsInstanced() method.
+     *
+     * [MDN Reference](https://developer.mozilla.org/docs/Web/API/WEBGL_multi_draw/multiDrawElementsInstancedWEBGL)
+     */
+    multiDrawElementsInstancedWEBGL(mode: GLenum, countsList: Int32Array | Iterable<GLsizei>, countsOffset: number, type: GLenum, offsetsList: Int32Array | Iterable<GLsizei>, offsetsOffset: number, instanceCountsList: Int32Array | Iterable<GLsizei>, instanceCountsOffset: number, drawcount: GLsizei): void;
+    /**
+     * The **`WEBGL_multi_draw.multiDrawElementsWEBGL()`** method of the WebGL API renders multiple primitives from array data. It is identical to multiple calls to the gl.drawElements() method.
+     *
+     * [MDN Reference](https://developer.mozilla.org/docs/Web/API/WEBGL_multi_draw/multiDrawElementsWEBGL)
+     */
+    multiDrawElementsWEBGL(mode: GLenum, countsList: Int32Array | Iterable<GLsizei>, countsOffset: number, type: GLenum, offsetsList: Int32Array | Iterable<GLsizei>, offsetsOffset: number, drawcount: GLsizei): void;
+}
+
+interface WGSLLanguageFeatures extends ReadonlySet<string> {
+}
+
+interface WebGL2RenderingContextBase {
+    /** [MDN Reference](https://developer.mozilla.org/docs/Web/API/WebGL2RenderingContext/clearBuffer) */
+    clearBufferfv(buffer: GLenum, drawbuffer: GLint, values: Iterable<GLfloat>, srcOffset?: number): void;
+    /** [MDN Reference](https://developer.mozilla.org/docs/Web/API/WebGL2RenderingContext/clearBuffer) */
+    clearBufferiv(buffer: GLenum, drawbuffer: GLint, values: Iterable<GLint>, srcOffset?: number): void;
+    /** [MDN Reference](https://developer.mozilla.org/docs/Web/API/WebGL2RenderingContext/clearBuffer) */
+    clearBufferuiv(buffer: GLenum, drawbuffer: GLint, values: Iterable<GLuint>, srcOffset?: number): void;
+    /** [MDN Reference](https://developer.mozilla.org/docs/Web/API/WebGL2RenderingContext/drawBuffers) */
+    drawBuffers(buffers: Iterable<GLenum>): void;
+    /** [MDN Reference](https://developer.mozilla.org/docs/Web/API/WebGL2RenderingContext/getActiveUniforms) */
+    getActiveUniforms(program: WebGLProgram, uniformIndices: Iterable<GLuint>, pname: GLenum): any;
+    /** [MDN Reference](https://developer.mozilla.org/docs/Web/API/WebGL2RenderingContext/getUniformIndices) */
+    getUniformIndices(program: WebGLProgram, uniformNames: Iterable<string>): GLuint[] | null;
+    /** [MDN Reference](https://developer.mozilla.org/docs/Web/API/WebGL2RenderingContext/invalidateFramebuffer) */
+    invalidateFramebuffer(target: GLenum, attachments: Iterable<GLenum>): void;
+    /** [MDN Reference](https://developer.mozilla.org/docs/Web/API/WebGL2RenderingContext/invalidateSubFramebuffer) */
+    invalidateSubFramebuffer(target: GLenum, attachments: Iterable<GLenum>, x: GLint, y: GLint, width: GLsizei, height: GLsizei): void;
+    /** [MDN Reference](https://developer.mozilla.org/docs/Web/API/WebGL2RenderingContext/transformFeedbackVaryings) */
+    transformFeedbackVaryings(program: WebGLProgram, varyings: Iterable<string>, bufferMode: GLenum): void;
+    /** [MDN Reference](https://developer.mozilla.org/docs/Web/API/WebGL2RenderingContext/uniform) */
+    uniform1uiv(location: WebGLUniformLocation | null, data: Iterable<GLuint>, srcOffset?: number, srcLength?: GLuint): void;
+    /** [MDN Reference](https://developer.mozilla.org/docs/Web/API/WebGL2RenderingContext/uniform) */
+    uniform2uiv(location: WebGLUniformLocation | null, data: Iterable<GLuint>, srcOffset?: number, srcLength?: GLuint): void;
+    /** [MDN Reference](https://developer.mozilla.org/docs/Web/API/WebGL2RenderingContext/uniform) */
+    uniform3uiv(location: WebGLUniformLocation | null, data: Iterable<GLuint>, srcOffset?: number, srcLength?: GLuint): void;
+    /** [MDN Reference](https://developer.mozilla.org/docs/Web/API/WebGL2RenderingContext/uniform) */
+    uniform4uiv(location: WebGLUniformLocation | null, data: Iterable<GLuint>, srcOffset?: number, srcLength?: GLuint): void;
+    /** [MDN Reference](https://developer.mozilla.org/docs/Web/API/WebGL2RenderingContext/uniformMatrix) */
+    uniformMatrix2x3fv(location: WebGLUniformLocation | null, transpose: GLboolean, data: Iterable<GLfloat>, srcOffset?: number, srcLength?: GLuint): void;
+    /** [MDN Reference](https://developer.mozilla.org/docs/Web/API/WebGL2RenderingContext/uniformMatrix) */
+    uniformMatrix2x4fv(location: WebGLUniformLocation | null, transpose: GLboolean, data: Iterable<GLfloat>, srcOffset?: number, srcLength?: GLuint): void;
+    /** [MDN Reference](https://developer.mozilla.org/docs/Web/API/WebGL2RenderingContext/uniformMatrix) */
+    uniformMatrix3x2fv(location: WebGLUniformLocation | null, transpose: GLboolean, data: Iterable<GLfloat>, srcOffset?: number, srcLength?: GLuint): void;
+    /** [MDN Reference](https://developer.mozilla.org/docs/Web/API/WebGL2RenderingContext/uniformMatrix) */
+    uniformMatrix3x4fv(location: WebGLUniformLocation | null, transpose: GLboolean, data: Iterable<GLfloat>, srcOffset?: number, srcLength?: GLuint): void;
+    /** [MDN Reference](https://developer.mozilla.org/docs/Web/API/WebGL2RenderingContext/uniformMatrix) */
+    uniformMatrix4x2fv(location: WebGLUniformLocation | null, transpose: GLboolean, data: Iterable<GLfloat>, srcOffset?: number, srcLength?: GLuint): void;
+    /** [MDN Reference](https://developer.mozilla.org/docs/Web/API/WebGL2RenderingContext/uniformMatrix) */
+    uniformMatrix4x3fv(location: WebGLUniformLocation | null, transpose: GLboolean, data: Iterable<GLfloat>, srcOffset?: number, srcLength?: GLuint): void;
+    /** [MDN Reference](https://developer.mozilla.org/docs/Web/API/WebGL2RenderingContext/vertexAttribI) */
+    vertexAttribI4iv(index: GLuint, values: Iterable<GLint>): void;
+    /** [MDN Reference](https://developer.mozilla.org/docs/Web/API/WebGL2RenderingContext/vertexAttribI) */
+    vertexAttribI4uiv(index: GLuint, values: Iterable<GLuint>): void;
+}
+
+interface WebGL2RenderingContextOverloads {
+    /** [MDN Reference](https://developer.mozilla.org/docs/Web/API/WebGLRenderingContext/uniform) */
+    uniform1fv(location: WebGLUniformLocation | null, data: Iterable<GLfloat>, srcOffset?: number, srcLength?: GLuint): void;
+    /** [MDN Reference](https://developer.mozilla.org/docs/Web/API/WebGLRenderingContext/uniform) */
+    uniform1iv(location: WebGLUniformLocation | null, data: Iterable<GLint>, srcOffset?: number, srcLength?: GLuint): void;
+    /** [MDN Reference](https://developer.mozilla.org/docs/Web/API/WebGLRenderingContext/uniform) */
+    uniform2fv(location: WebGLUniformLocation | null, data: Iterable<GLfloat>, srcOffset?: number, srcLength?: GLuint): void;
+    /** [MDN Reference](https://developer.mozilla.org/docs/Web/API/WebGLRenderingContext/uniform) */
+    uniform2iv(location: WebGLUniformLocation | null, data: Iterable<GLint>, srcOffset?: number, srcLength?: GLuint): void;
+    /** [MDN Reference](https://developer.mozilla.org/docs/Web/API/WebGLRenderingContext/uniform) */
+    uniform3fv(location: WebGLUniformLocation | null, data: Iterable<GLfloat>, srcOffset?: number, srcLength?: GLuint): void;
+    /** [MDN Reference](https://developer.mozilla.org/docs/Web/API/WebGLRenderingContext/uniform) */
+    uniform3iv(location: WebGLUniformLocation | null, data: Iterable<GLint>, srcOffset?: number, srcLength?: GLuint): void;
+    /** [MDN Reference](https://developer.mozilla.org/docs/Web/API/WebGLRenderingContext/uniform) */
+    uniform4fv(location: WebGLUniformLocation | null, data: Iterable<GLfloat>, srcOffset?: number, srcLength?: GLuint): void;
+    /** [MDN Reference](https://developer.mozilla.org/docs/Web/API/WebGLRenderingContext/uniform) */
+    uniform4iv(location: WebGLUniformLocation | null, data: Iterable<GLint>, srcOffset?: number, srcLength?: GLuint): void;
+    /** [MDN Reference](https://developer.mozilla.org/docs/Web/API/WebGL2RenderingContext/uniformMatrix) */
+    uniformMatrix2fv(location: WebGLUniformLocation | null, transpose: GLboolean, data: Iterable<GLfloat>, srcOffset?: number, srcLength?: GLuint): void;
+    /** [MDN Reference](https://developer.mozilla.org/docs/Web/API/WebGLRenderingContext/uniformMatrix) */
+    uniformMatrix3fv(location: WebGLUniformLocation | null, transpose: GLboolean, data: Iterable<GLfloat>, srcOffset?: number, srcLength?: GLuint): void;
+    /** [MDN Reference](https://developer.mozilla.org/docs/Web/API/WebGLRenderingContext/uniformMatrix) */
+    uniformMatrix4fv(location: WebGLUniformLocation | null, transpose: GLboolean, data: Iterable<GLfloat>, srcOffset?: number, srcLength?: GLuint): void;
+}
+
+interface WebGLRenderingContextBase {
+    /** [MDN Reference](https://developer.mozilla.org/docs/Web/API/WebGLRenderingContext/vertexAttrib) */
+    vertexAttrib1fv(index: GLuint, values: Iterable<GLfloat>): void;
+    /** [MDN Reference](https://developer.mozilla.org/docs/Web/API/WebGLRenderingContext/vertexAttrib) */
+    vertexAttrib2fv(index: GLuint, values: Iterable<GLfloat>): void;
+    /** [MDN Reference](https://developer.mozilla.org/docs/Web/API/WebGLRenderingContext/vertexAttrib) */
+    vertexAttrib3fv(index: GLuint, values: Iterable<GLfloat>): void;
+    /** [MDN Reference](https://developer.mozilla.org/docs/Web/API/WebGLRenderingContext/vertexAttrib) */
+    vertexAttrib4fv(index: GLuint, values: Iterable<GLfloat>): void;
+}
+
+interface WebGLRenderingContextOverloads {
+    /** [MDN Reference](https://developer.mozilla.org/docs/Web/API/WebGLRenderingContext/uniform) */
+    uniform1fv(location: WebGLUniformLocation | null, v: Iterable<GLfloat>): void;
+    /** [MDN Reference](https://developer.mozilla.org/docs/Web/API/WebGLRenderingContext/uniform) */
+    uniform1iv(location: WebGLUniformLocation | null, v: Iterable<GLint>): void;
+    /** [MDN Reference](https://developer.mozilla.org/docs/Web/API/WebGLRenderingContext/uniform) */
+    uniform2fv(location: WebGLUniformLocation | null, v: Iterable<GLfloat>): void;
+    /** [MDN Reference](https://developer.mozilla.org/docs/Web/API/WebGLRenderingContext/uniform) */
+    uniform2iv(location: WebGLUniformLocation | null, v: Iterable<GLint>): void;
+    /** [MDN Reference](https://developer.mozilla.org/docs/Web/API/WebGLRenderingContext/uniform) */
+    uniform3fv(location: WebGLUniformLocation | null, v: Iterable<GLfloat>): void;
+    /** [MDN Reference](https://developer.mozilla.org/docs/Web/API/WebGLRenderingContext/uniform) */
+    uniform3iv(location: WebGLUniformLocation | null, v: Iterable<GLint>): void;
+    /** [MDN Reference](https://developer.mozilla.org/docs/Web/API/WebGLRenderingContext/uniform) */
+    uniform4fv(location: WebGLUniformLocation | null, v: Iterable<GLfloat>): void;
+    /** [MDN Reference](https://developer.mozilla.org/docs/Web/API/WebGLRenderingContext/uniform) */
+    uniform4iv(location: WebGLUniformLocation | null, v: Iterable<GLint>): void;
+    /** [MDN Reference](https://developer.mozilla.org/docs/Web/API/WebGLRenderingContext/uniformMatrix) */
+    uniformMatrix2fv(location: WebGLUniformLocation | null, transpose: GLboolean, value: Iterable<GLfloat>): void;
+    /** [MDN Reference](https://developer.mozilla.org/docs/Web/API/WebGLRenderingContext/uniformMatrix) */
+    uniformMatrix3fv(location: WebGLUniformLocation | null, transpose: GLboolean, value: Iterable<GLfloat>): void;
+    /** [MDN Reference](https://developer.mozilla.org/docs/Web/API/WebGLRenderingContext/uniformMatrix) */
+    uniformMatrix4fv(location: WebGLUniformLocation | null, transpose: GLboolean, value: Iterable<GLfloat>): void;
+}
